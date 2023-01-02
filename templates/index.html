@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>ChatGPT</title>
+  </head>
+  <body>
+    <h1>Chat with GPT-3</h1>
+    <form method="post" action="/send_message">
+      <label for="message">Enter your message:</label><br>
+      <input type="text" id="message" name="message"><br>
+      <input type="submit" value="Send">
+    </form> 
+    {% if response %}
+      <h2>Response:</h2>
+      {% for line in response.split('\n') %}
+        {{ line|safe }}<br>
+      {% endfor %}
+    {% endif %}
+  </body>
+</html>
